@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ServiceHub - On-Demand Professional Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        .service-card {
+            transition: all 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .fade-in {
+            animation: fadeIn 0.6s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Header -->
+    <header class="gradient-bg text-white shadow-lg">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                        <span class="text-purple-600 font-bold text-xl">S</span>
+                    </div>
+                    <h1 class="text-2xl font-bold">ServiceHub</h1>
+                </div>
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#services" class="hover:text-purple-200 transition-colors">Services</a>
+                    <a href="#how-it-works" class="hover:text-purple-200 transition-colors">How It Works</a>
+                    <a href="#contact" class="hover:text-purple-200 transition-colors">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-20">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-5xl font-bold mb-6 fade-in">Get Any Service Done</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto fade-in">From coding to writing, design to consulting - connect with skilled professionals who deliver quality work on demand.</p>
+            <button onclick="scrollToServices()" class="bg-white text-purple-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors shadow-lg fade-in">
+                Browse Services
+            </button>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h3 class="text-4xl font-bold text-center mb-12 text-gray-800">Popular Services</h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Coding Services -->
+                <div class="service-card bg-white rounded-xl shadow-lg p-6 border border-gray-100">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                        <span class="text-3xl">💻</span>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-3 text-gray-800">Web Development</h4>
+                    <p class="text-gray-600 mb-6">Custom websites, web applications, and mobile apps built by expert developers.</p>
+                    <div class="flex justify-end">
+                        <button onclick="requestService('Web Development')" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                            Request Service
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Writing Services -->
+                <div class="service-card bg-white rounded-xl shadow-lg p-6 border border-gray-100">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                        <span class="text-3xl">✍️</span>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-3 text-gray-800">Content Writing</h4>
+                    <p class="text-gray-600 mb-6">Blog posts, articles, copywriting, and technical documentation by professional writers.</p>
+                    <div class="flex justify-end">
+                        <button onclick="requestService('Content Writing')" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                            Request Service
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Design Services -->
+                <div class="service-card bg-white rounded-xl shadow-lg p-6 border border-gray-100">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-4">
+                        <span class="text-3xl">🎨</span>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-3 text-gray-800">Graphic Design</h4>
+                    <p class="text-gray-600 mb-6">Logos, branding, UI/UX design, and marketing materials created by talented designers.</p>
+                    <div class="flex justify-end">
+                        <button onclick="requestService('Graphic Design')" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                            Request Service
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Marketing Services -->
+                <div class="service-card bg-white rounded-xl shadow-lg p-6 border border-gray-100">
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-4">
+                        <span class="text-3xl">📈</span>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-3 text-gray-800">Digital Marketing</h4>
+                    <p class="text-gray-600 mb-6">SEO, social media management, and advertising campaigns to grow your business.</p>
+                    <div class="flex justify-end">
+                        <button onclick="requestService('Digital Marketing')" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                            Request Service
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Consulting Services -->
+                <div class="service-card bg-white rounded-xl shadow-lg p-6 border border-gray-100">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4">
+                        <span class="text-3xl">🤝</span>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-3 text-gray-800">Business Consulting</h4>
+                    <p class="text-gray-600 mb-6">Strategic advice, business planning, and process optimization from industry experts.</p>
+                    <div class="flex justify-end">
+                        <button onclick="requestService('Business Consulting')" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                            Request Service
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Data Services -->
+                <div class="service-card bg-white rounded-xl shadow-lg p-6 border border-gray-100">
+                    <div class="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mb-4">
+                        <span class="text-3xl">📊</span>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-3 text-gray-800">Data Analysis</h4>
+                    <p class="text-gray-600 mb-6">Data visualization, statistical analysis, and insights to drive business decisions.</p>
+                    <div class="flex justify-end">
+                        <button onclick="requestService('Data Analysis')" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                            Request Service
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h3 class="text-4xl font-bold text-center mb-12 text-gray-800">How It Works</h3>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white text-2xl font-bold">1</span>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-3">Request a Service</h4>
+                    <p class="text-gray-600">Tell us what you need and provide project details. Your request will be sent directly to your email.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white text-2xl font-bold">2</span>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-3">Get Confirmation</h4>
+                    <p class="text-gray-600">Receive an email confirmation with your service request details and next steps.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white text-2xl font-bold">3</span>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-3">Connect & Collaborate</h4>
+                    <p class="text-gray-600">We'll match you with qualified professionals who will contact you to discuss your project.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Request Modal -->
+    <div id="requestModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 overflow-y-auto">
+        <div class="bg-white rounded-xl p-8 max-w-md w-full mx-4 my-8 max-h-screen overflow-y-auto">
+            <h3 class="text-2xl font-bold mb-6 text-gray-800">Request Service</h3>
+            <form id="serviceForm" onsubmit="submitRequest(event)">
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-semibold mb-2">Service Type</label>
+                    <input type="text" id="serviceType" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" readonly>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-semibold mb-2">Your Name</label>
+                    <input type="text" id="clientName" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-semibold mb-2">Email</label>
+                    <input type="email" id="clientEmail" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-semibold mb-2">Phone (Optional)</label>
+                    <input type="tel" id="clientPhone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-semibold mb-2">Project Description</label>
+                    <textarea id="projectDescription" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" placeholder="Describe your project requirements in detail..." required></textarea>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-gray-700 font-semibold mb-2">Timeline</label>
+                    <select id="timeline" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" required>
+                        <option value="">Select timeline</option>
+                        <option value="ASAP">ASAP (Rush)</option>
+                        <option value="1 week">Within 1 week</option>
+                        <option value="2-4 weeks">2-4 weeks</option>
+                        <option value="1-2 months">1-2 months</option>
+                        <option value="Flexible">Flexible timeline</option>
+                    </select>
+                </div>
+                <div class="flex space-x-4">
+                    <button type="button" onclick="closeModal()" class="flex-1 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
+                        Cancel
+                    </button>
+                    <button type="submit" id="submitBtn" class="flex-1 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                        Send Request
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Message -->
+    <div id="successMessage" class="fixed top-4 right-4 bg-green-500 text-white px-6 py-4 rounded-lg shadow-lg hidden z-50">
+        <div class="flex items-center">
+            <span class="mr-2">✅</span>
+            <span>Service request sent to your email successfully!</span>
+        </div>
+    </div>
+
+    <!-- Error Message -->
+    <div id="errorMessage" class="fixed top-4 right-4 bg-red-500 text-white px-6 py-4 rounded-lg shadow-lg hidden z-50">
+        <div class="flex items-center">
+            <span class="mr-2">❌</span>
+            <span>Failed to send email. Please try again.</span>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h4 class="text-xl font-bold mb-4">ServiceHub</h4>
+                    <p class="text-gray-300">Connecting businesses with skilled professionals for on-demand services worldwide.</p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#services" class="hover:text-white transition-colors">Services</a></li>
+                        <li><a href="#how-it-works" class="hover:text-white transition-colors">How It Works</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Contact Us</h4>
+                    <p class="text-gray-300 mb-2">📧 hello@servicehub.com</p>
+                    <p class="text-gray-300 mb-2">📞 +1 (555) 123-4567</p>
+                    <p class="text-gray-300">🌍 Available worldwide</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
+                <p>&copy; 2024 ServiceHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize EmailJS (optional - will fallback to mailto if not configured)
+        let emailJSConfigured = false;
+        try {
+            // Only initialize if you have actual credentials
+            // emailjs.init("YOUR_PUBLIC_KEY"); 
+            // emailJSConfigured = true;
+        } catch (e) {
+            console.log('EmailJS not configured, using mailto fallback');
+        }
+
+        function scrollToServices() {
+            document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function requestService(serviceType) {
+            document.getElementById('serviceType').value = serviceType;
+            document.getElementById('requestModal').classList.remove('hidden');
+            document.getElementById('requestModal').classList.add('flex');
+        }
+
+        function closeModal() {
+            document.getElementById('requestModal').classList.add('hidden');
+            document.getElementById('requestModal').classList.remove('flex');
+            document.getElementById('serviceForm').reset();
+        }
+
+        function submitRequest(event) {
+            event.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            const formData = {
+                service_type: document.getElementById('serviceType').value,
+                client_name: document.getElementById('clientName').value,
+                client_email: document.getElementById('clientEmail').value,
+                client_phone: document.getElementById('clientPhone').value || 'Not provided',
+                project_description: document.getElementById('projectDescription').value,
+                timeline: document.getElementById('timeline').value,
+                submission_date: new Date().toLocaleDateString(),
+                submission_time: new Date().toLocaleTimeString()
+            };
+
+            // Create email content
+            const emailSubject = `Service Request: ${formData.service_type}`;
+            const emailBody = `
+Service Request Details:
+
+Service Type: ${formData.service_type}
+Client Name: ${formData.client_name}
+Email: ${formData.client_email}
+Phone: ${formData.client_phone}
+Timeline: ${formData.timeline}
+Submission Date: ${formData.submission_date}
+Submission Time: ${formData.submission_time}
+
+Project Description:
+${formData.project_description}
+
+---
+This request was submitted through ServiceHub.
+            `.trim();
+
+            if (emailJSConfigured) {
+                // Use EmailJS if configured
+                emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formData)
+                    .then(function(response) {
+                        console.log('Email sent successfully:', response);
+                        closeModal();
+                        showSuccessMessage();
+                    }, function(error) {
+                        console.log('Email failed to send:', error);
+                        showErrorMessage();
+                    })
+                    .finally(function() {
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                    });
+            } else {
+                // Fallback to mailto link
+                const mailtoLink = `mailto:${formData.client_email}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+                
+                // Open default email client
+                window.open(mailtoLink, '_blank');
+                
+                // Show success message
+                setTimeout(() => {
+                    closeModal();
+                    showSuccessMessage();
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                }, 1000);
+            }
+        }
+
+        function showSuccessMessage() {
+            const successMsg = document.getElementById('successMessage');
+            successMsg.classList.remove('hidden');
+            
+            setTimeout(() => {
+                successMsg.classList.add('hidden');
+            }, 5000);
+        }
+
+        function showErrorMessage() {
+            const errorMsg = document.getElementById('errorMessage');
+            errorMsg.classList.remove('hidden');
+            
+            setTimeout(() => {
+                errorMsg.classList.add('hidden');
+            }, 5000);
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('requestModal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closeModal();
+            }
+        });
+
+        // Add smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98693862643c58b9',t:'MTc1OTEyNTIwNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
